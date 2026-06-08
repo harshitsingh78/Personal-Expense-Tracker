@@ -1,0 +1,207 @@
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* Notion style clean off-white background */
+  background-color: #fbfbfa; 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Top Banner / Hero Image - New Updated Image */
+body::before {
+  content: "";
+  width: 100%;
+  height: 300px; /* Image acche se dikhe isliye height thodi badhai hai */
+  /* Aapki nayi image ka direct source link */
+  background-image: url('https://images.unsplash.com/photo-1580519542036-c47de6196ba5?q=80&w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center 35%; /* Image ke center-focus ko set karne ke liye */
+  margin-bottom: -60px; /* Container ke sath overlap balance karne ke liye */
+}
+
+.container {
+  position: relative;
+  width: 90%;
+  max-width: 1100px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 50px;
+  z-index: 1; /* Taaki container image ke upar cleanly float kare */
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+  border-bottom: 1px solid #edece9;
+  padding-bottom: 8px;
+  margin: 35px 0 15px;
+}
+
+.balance-container {
+  background-color: #f7f6f3;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.balance-container h4 {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #7f7f7f;
+  letter-spacing: 0.5px;
+}
+
+.balance-container h1 {
+  margin: 8px 0 0;
+  color: #1a1a1a;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.inc-exp-container {
+  background-color: #ffffff;
+  border: 1px solid #edece9;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0;
+  border-radius: 8px;
+}
+
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+.inc-exp-container > div:first-of-type {
+  border-right: 1px solid #edece9;
+}
+
+.money {
+  font-size: 24px;
+  margin: 5px 0 0;
+  font-weight: 600;
+}
+
+.money.plus {
+  color: #0b6e4f; /* Notion style professional green */
+}
+
+.money.minus {
+  color: #df5646; /* Notion style soft red */
+}
+
+label {
+  display: inline-block;
+  margin: 15px 0 5px;
+  color: #4f4f4f;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+input[type='text'], input[type='number'] {
+  border: 1px solid #edece9;
+  background-color: #f7f6f3;
+  border-radius: 6px;
+  display: block;
+  font-size: 15px;
+  padding: 12px;
+  width: 100%;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+input[type='text']:focus, input[type='number']:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: #2383e2; /* Clean blue focus like Notion */
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #2383e2; /* Notion blue button */
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 15px;
+  margin: 20px 0 10px;
+  padding: 12px;
+  width: 100%;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #1a6ab4;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 30px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.list li {
+  background-color: #ffffff;
+  border: 1px solid #edece9;
+  color: #1a1a1a;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.list li.plus {
+  border-left: 5px solid #0b6e4f;
+}
+
+.list li.minus {
+  border-left: 5px solid #df5646;
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: #df5646;
+  border: 0;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  position: absolute;
+  top: 50%;
+  right: 15px; /* Right side shift kiya cleanly delete karne ke liye */
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 4px;
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+}
