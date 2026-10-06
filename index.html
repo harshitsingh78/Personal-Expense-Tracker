@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Personal Expense Tracker</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+    <!-- ==========================================================
+         FLOATING BACKGROUND
+         ========================================================== -->
+
     <div class="floating-container">
+
         <span class="float-item fill-1">💵</span>
         <span class="float-item fill-2">📈</span>
         <span class="float-item fill-3">🪙</span>
@@ -17,72 +26,597 @@
         <span class="float-item fill-6">📊</span>
         <span class="float-item fill-7">💰</span>
         <span class="float-item fill-8">📉</span>
+
     </div>
+
+
+    <!-- ==========================================================
+         MAIN CONTAINER
+         ========================================================== -->
 
     <div class="container">
-        
+
+
+        <!-- ======================================================
+             LOGIN
+             ====================================================== -->
+
         <div class="auth-container" id="auth-box">
+
             <div class="login-card">
-                <div class="app-icon">💰</div>
-                <h2>Personal Expense Tracker</h2>
-                <p class="tagline">Manage your daily expenses with a clean, secure and automated dashboard.</p>
-                <button id="login-btn" class="google-btn">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo">
-                    <span>Sign in with Google</span>
+
+                <div class="app-icon">
+                    💰
+                </div>
+
+                <h2>
+                    Personal Expense Tracker
+                </h2>
+
+                <p class="tagline">
+                    Manage your daily expenses with a clean,
+                    secure and automated dashboard.
+                </p>
+
+                <button
+                    id="login-btn"
+                    class="google-btn"
+                >
+
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                        alt="Google Logo"
+                    >
+
+                    <span>
+                        Sign in with Google
+                    </span>
+
                 </button>
+
             </div>
+
         </div>
 
-        <div class="user-profile-bar" id="user-profile" style="display: none;">
+
+        <!-- ======================================================
+             USER PROFILE
+             ====================================================== -->
+
+        <div
+            class="user-profile-bar"
+            id="user-profile"
+            style="display: none;"
+        >
+
             <span id="user-name"></span>
-            <button id="logout-btn" class="logout-btn">Logout</button>
+
+            <button
+                id="logout-btn"
+                class="logout-btn"
+            >
+                Logout
+            </button>
+
         </div>
-        
-        <div id="main-dashboard" style="display: none;">
-            
-            <h2>💰 Expense Tracker Dashboard</h2>
+
+
+        <!-- ======================================================
+             MAIN DASHBOARD
+             ====================================================== -->
+
+        <div
+            id="main-dashboard"
+            style="display: none;"
+        >
+
+
+            <!-- Dashboard Header -->
+
+            <div class="dashboard-header">
+
+                <div>
+
+                    <p class="dashboard-label">
+                        PERSONAL FINANCE
+                    </p>
+
+                    <h2>
+                        Expense Dashboard
+                    </h2>
+
+                    <p class="dashboard-subtitle">
+                        Track your money. Understand your spending.
+                    </p>
+
+                </div>
+
+                <div
+                    class="dashboard-date"
+                    id="dashboard-date"
+                >
+                    -- --- ----
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 BALANCE
+                 ================================================== -->
 
             <div class="balance-container">
-                <h4>Your Balance</h4>
-                <h1 id="balance">₹0.00</h1>
+
+                <div class="balance-top">
+
+                    <div>
+
+                        <h4>
+                            Total Balance
+                        </h4>
+
+                        <p class="balance-description">
+                            Your current financial balance
+                        </p>
+
+                    </div>
+
+                    <div class="balance-icon">
+                        💰
+                    </div>
+
+                </div>
+
+                <h1 id="balance">
+                    ₹0.00
+                </h1>
+
             </div>
+
+
+            <!-- ==================================================
+                 INCOME / EXPENSE
+                 ================================================== -->
 
             <div class="inc-exp-container">
-                <div>
-                    <h4>Income</h4>
-                    <p id="money-plus" class="money plus">+₹0.00</p>
+
+
+                <div class="summary-card income-card">
+
+                    <div class="summary-icon">
+                        ↗
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Total Income
+                        </h4>
+
+                        <p
+                            id="money-plus"
+                            class="money plus"
+                        >
+                            +₹0.00
+                        </p>
+
+                    </div>
+
                 </div>
-                <div>
-                    <h4>Expense</h4>
-                    <p id="money-minus" class="money minus">-₹0.00</p>
+
+
+                <div class="summary-card expense-card">
+
+                    <div class="summary-icon">
+                        ↘
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Total Expenses
+                        </h4>
+
+                        <p
+                            id="money-minus"
+                            class="money minus"
+                        >
+                            -₹0.00
+                        </p>
+
+                    </div>
+
                 </div>
+
             </div>
 
-            <h3>History</h3>
-            <ul id="list" class="list">
-                </ul>
 
-            <h3>Add New Transaction</h3>
+            <!-- ==================================================
+                 QUICK STATS
+                 ================================================== -->
+
+            <div class="quick-stats">
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        🧾
+                    </span>
+
+                    <div>
+
+                        <span class="stat-label">
+                            Transactions
+                        </span>
+
+                        <strong id="transaction-count">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        📅
+                    </span>
+
+                    <div>
+
+                        <span class="stat-label">
+                            This Month
+                        </span>
+
+                        <strong id="monthly-expense">
+                            ₹0.00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        📊
+                    </span>
+
+                    <div>
+
+                        <span class="stat-label">
+                            Avg. Expense
+                        </span>
+
+                        <strong id="average-expense">
+                            ₹0.00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 TRANSACTION SECTION
+                 ================================================== -->
+
+            <div class="section-header">
+
+                <div>
+
+                    <h3>
+                        Transactions
+                    </h3>
+
+                    <p>
+                        Search and filter your transactions
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 SEARCH + FILTERS
+                 ================================================== -->
+
+            <div class="filter-container">
+
+
+                <!-- Search -->
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+                    <input
+                        type="text"
+                        id="search-input"
+                        placeholder="Search transactions..."
+                    >
+
+                </div>
+
+
+                <!-- Category Filter -->
+
+                <div class="filter-group">
+
+                    <label for="category-filter">
+                        Category
+                    </label>
+
+                    <select id="category-filter">
+
+                        <option value="all">
+                            All Categories
+                        </option>
+
+                        <option value="Food">
+                            🍔 Food
+                        </option>
+
+                        <option value="Shopping">
+                            🛍️ Shopping
+                        </option>
+
+                        <option value="Transport">
+                            🚗 Transport
+                        </option>
+
+                        <option value="Bills">
+                            💡 Bills
+                        </option>
+
+                        <option value="Salary">
+                            💰 Salary
+                        </option>
+
+                        <option value="Other">
+                            📦 Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Type Filter -->
+
+                <div class="filter-group">
+
+                    <label for="type-filter">
+                        Type
+                    </label>
+
+                    <select id="type-filter">
+
+                        <option value="all">
+                            All Transactions
+                        </option>
+
+                        <option value="income">
+                            Income
+                        </option>
+
+                        <option value="expense">
+                            Expenses
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 TRANSACTION LIST
+                 ================================================== -->
+
+            <ul
+                id="list"
+                class="list"
+            >
+            </ul>
+
+
+            <!-- ==================================================
+                 ADD TRANSACTION
+                 ================================================== -->
+
+            <div class="section-header transaction-form-heading">
+
+                <div>
+
+                    <h3 id="form-title">
+                        Add Transaction
+                    </h3>
+
+                    <p id="form-subtitle">
+                        Record your income or expense
+                    </p>
+
+                </div>
+
+            </div>
+
+
             <form id="form">
+
+
+                <!-- Description -->
+
                 <div class="form-control">
-                    <label for="text">Description (e.g., Salary, Book, Food)</label>
-                    <input type="text" id="text" placeholder="Enter text..." required />
+
+                    <label for="text">
+                        Description
+                    </label>
+
+                    <input
+                        type="text"
+                        id="text"
+                        placeholder="e.g. Salary, Food, Shopping"
+                        required
+                    >
+
                 </div>
+
+
+                <!-- Amount -->
+
                 <div class="form-control">
-                    <label for="amount">Amount <br> (negative = expense, positive = income)</label>
-                    <input type="number" id="amount" placeholder="Enter amount..." required />
+
+                    <label for="amount">
+                        Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        step="0.01"
+                        placeholder="Positive = income, negative = expense"
+                        required
+                    >
+
                 </div>
-                <button class="btn">Add Transaction</button>
+
+
+                <!-- Category -->
+
+                <div class="form-control">
+
+                    <label for="category">
+                        Category
+                    </label>
+
+                    <select
+                        id="category"
+                        required
+                    >
+
+                        <option
+                            value=""
+                            disabled
+                            selected
+                        >
+                            Select category
+                        </option>
+
+                        <option value="Food">
+                            🍔 Food
+                        </option>
+
+                        <option value="Shopping">
+                            🛍️ Shopping
+                        </option>
+
+                        <option value="Transport">
+                            🚗 Transport
+                        </option>
+
+                        <option value="Bills">
+                            💡 Bills
+                        </option>
+
+                        <option value="Salary">
+                            💰 Salary
+                        </option>
+
+                        <option value="Other">
+                            📦 Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Date -->
+
+                <div class="form-control">
+
+                    <label for="transaction-date">
+                        Transaction Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="transaction-date"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Buttons -->
+
+                <div class="form-buttons">
+
+                    <button
+                        type="submit"
+                        class="btn"
+                        id="submit-btn"
+                    >
+                        + Add Transaction
+                    </button>
+
+                    <button
+                        type="button"
+                        class="cancel-edit-btn"
+                        id="cancel-edit-btn"
+                        style="display: none;"
+                    >
+                        Cancel Edit
+                    </button>
+
+                </div>
+
             </form>
-            
-            <button id="clear-btn" class="btn" style="background-color: #7f8c8d; margin-top: 20px;">Clear My Data</button>
+
+
+            <!-- ==================================================
+                 CLEAR DATA
+                 ================================================== -->
+
+            <button
+                id="clear-btn"
+                class="btn clear-data-btn"
+            >
+                🗑 Clear My Data
+            </button>
+
+
         </div>
+
     </div>
 
+
+    <!-- ==========================================================
+         FIREBASE
+         ========================================================== -->
+
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
+
+    <!-- APPLICATION JS -->
+
     <script src="script.js"></script>
+
 </body>
+
 </html>
